@@ -9639,4 +9639,35 @@ var elm$url$Url$chompAfterProtocol = F2(
 			}
 		}
 	});
-var elm$url$Url$fromString = funct
+var elm$url$Url$fromString = function (str) {
+	return A2(elm$core$String$startsWith, 'http://', str) ? A2(
+		elm$url$Url$chompAfterProtocol,
+		elm$url$Url$Http,
+		A2(elm$core$String$dropLeft, 7, str)) : (A2(elm$core$String$startsWith, 'https://', str) ? A2(
+		elm$url$Url$chompAfterProtocol,
+		elm$url$Url$Https,
+		A2(elm$core$String$dropLeft, 8, str)) : elm$core$Maybe$Nothing);
+};
+var elm$browser$Browser$element = _Browser_element;
+var elm$core$Platform$Sub$batch = _Platform_batch;
+var elm$core$Platform$Sub$none = elm$core$Platform$Sub$batch(_List_Nil);
+var author$project$Main$main = elm$browser$Browser$element(
+	{
+		init: function (_n0) {
+			return author$project$Main$init;
+		},
+		subscriptions: elm$core$Basics$always(elm$core$Platform$Sub$none),
+		update: author$project$Main$update,
+		view: author$project$Main$view
+	});
+_Platform_export({'Main':{'init':author$project$Main$main(
+	elm$json$Json$Decode$succeed(_Utils_Tuple0))({"versions":{"elm":"0.19.0"},"types":{"message":"Main.Msg","aliases":{"Main.Record":{"args":[],"type":"{ foo : Basics.Int }"},"Kinto.ErrorDetail":{"args":[],"type":"{ errno : Basics.Int, message : String.String, code : Basics.Int, error : String.String }"},"Kinto.StatusCode":{"args":[],"type":"Basics.Int"},"Kinto.StatusMsg":{"args":[],"type":"String.String"},"Http.Response":{"args":["body"],"type":"{ url : String.String, status : { code : Basics.Int, message : String.String }, headers : Dict.Dict String.String String.String, body : body }"}},"unions":{"Main.Msg":{"args":[],"tags":{"AddRecord":["Result.Result Kinto.Error Main.Record"]}},"Kinto.Error":{"args":[],"tags":{"ServerError":["Kinto.StatusCode","Kinto.StatusMsg","String.String"],"KintoError":["Kinto.StatusCode","Kinto.StatusMsg","Kinto.ErrorDetail"],"NetworkError":["Http.Error"]}},"Basics.Int":{"args":[],"tags":{"Int":[]}},"Result.Result":{"args":["error","value"],"tags":{"Ok":["value"],"Err":["error"]}},"String.String":{"args":[],"tags":{"String":[]}},"Http.Error":{"args":[],"tags":{"BadUrl":["String.String"],"Timeout":[],"NetworkError":[],"BadStatus":["Http.Response String.String"],"BadPayload":["String.String","Http.Response String.String"]}},"Dict.Dict":{"args":["k","v"],"tags":{"RBNode_elm_builtin":["Dict.NColor","k","v","Dict.Dict k v","Dict.Dict k v"],"RBEmpty_elm_builtin":[]}},"Dict.NColor":{"args":[],"tags":{"Red":[],"Black":[]}}}}})}});}(this));
+
+var app = Elm.Main.init({ node: document.getElementById("elm-f0111bc4e658d0f98db96260c16f7e49") });
+if (document.getElementById("elm-f0111bc4e658d0f98db96260c16f7e49"))
+{
+  document.getElementById("elm-f0111bc4e658d0f98db96260c16f7e49").innerText = 'This is a headless program, meaning there is nothing to show here.\n\nI started the program anyway though, and you can access it as `app` in the developer console.';
+}
+</script>
+</body>
+</html>
